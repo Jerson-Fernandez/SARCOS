@@ -71,7 +71,7 @@
         .btn-grande { width: 100%; padding: 15px; background: #333; color: white; border: none; border-radius: 10px; font-size: 18px; cursor: pointer; font-weight: bold; appearance: none; -webkit-appearance: none; }
         .btn-grande:active { background: #000; transform: scale(0.98); }
 
-        /* --- MODALES (Ficha técnica y Compartir) --- */
+        /* --- MODALES --- */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); align-items: center; justify-content: center; }
         .modal-content { background-color: #fff; margin: auto; padding: 0; border-radius: 15px; width: 90%; max-width: 500px; position: relative; animation: slideUp 0.4s; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         @keyframes slideUp { from {transform: translateY(50px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
@@ -82,41 +82,17 @@
         .modal-body { padding: 20px; max-height: 60vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
         .modal-footer { padding: 15px 20px; background: #f9f9f9; text-align: center; border-top: 1px solid #eee; }
         
-        /* Estilos específicos de la ficha técnica */
         .modal-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
         .specs-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;}
         .specs-table td { padding: 8px; border-bottom: 1px solid #eee; }
         .specs-table td:first-child { font-weight: bold; color: #555; width: 40%; }
         .specs-table tr:last-child td { border-bottom: none; }
 
-        /* --- NUEVO: ESTILOS PARA INPUT DE CELULAR --- */
-        .input-group-whatsapp {
-            display: flex;
-            align-items: center;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            padding: 5px;
-            margin-bottom: 20px;
-            background: white;
-        }
-        .flag-prefix {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            background: #f0f0f0;
-            border-radius: 8px;
-            font-weight: bold;
-            color: #333;
-            margin-right: 10px;
-        }
+        /* --- INPUT CELULAR --- */
+        .input-group-whatsapp { display: flex; align-items: center; border: 2px solid #ddd; border-radius: 10px; padding: 5px; margin-bottom: 20px; background: white; }
+        .flag-prefix { display: flex; align-items: center; padding: 10px; background: #f0f0f0; border-radius: 8px; font-weight: bold; color: #333; margin-right: 10px; }
         .flag-icon { font-size: 20px; margin-right: 5px; }
-        .input-phone {
-            border: none;
-            outline: none;
-            font-size: 18px;
-            width: 100%;
-            padding: 10px 5px;
-        }
+        .input-phone { border: none; outline: none; font-size: 18px; width: 100%; padding: 10px 5px; }
     </style>
 </head>
 <body>
@@ -137,8 +113,8 @@
                 <div class="header-calc">Comparta su propuesta :</div>
                 <div class="moto-seleccionada" id="nombreMotoSel">(Seleccione una moto)</div>
 
-                <div class="list-item"><div class="circle">1</div><span class="label">Precio al Contado: S/</span><input type="number" id="costo" value="0" oninput="calcular()"></div>
-                <div class="list-item"><div class="circle">2</div><span class="label">Monto Inicial: S/</span><input type="number" id="inicial" value="0" oninput="calcular()"></div>
+                <div class="list-item"><div class="circle">1</div><span class="label">Precio al Contado: S/.</span><input type="number" id="costo" value="0" oninput="calcular()"></div>
+                <div class="list-item"><div class="circle">2</div><span class="label">Monto Inicial: S/.</span><input type="number" id="inicial" value="0" oninput="calcular()"></div>
                 <div class="list-item"><div class="circle">3</div><span class="label">Numero de Cuotas: #</span><input type="number" id="cuotas" value="12" oninput="calcular()"></div>
                 <div class="list-item">
                     <div class="circle">4</div><span class="label">Tiempo de Pago: </span>
@@ -149,8 +125,9 @@
                     </select>
                 </div>
                 <div class="list-item"><div class="circle">5</div><span class="label">Monto de Interes: %</span><input type="number" id="interes" value="4.5" oninput="calcular()"></div>
-                <div class="list-item"><div class="circle">6</div><span class="label resultado-final">Por Cuotas: S/ <span id="resultadoCuota">0</span></span></div>
-                <div class="list-item"><div class="circle">7</div><span class="label resultado-final">Total: S/ <span id="resultadoTotal">0</span></span></div>
+                
+                <div class="list-item"><div class="circle">6</div><span class="label resultado-final">Por Cuotas: S/. <span id="resultadoCuota">0</span></span></div>
+                <div class="list-item"><div class="circle">7</div><span class="label resultado-final">Total: S/. <span id="resultadoTotal">0</span></span></div>
 
                 <div style="padding: 20px; text-align: center;">
                     <button class="btn-grande" onclick="abrirModalShare()">Compartir Propuesta</button>
@@ -191,17 +168,11 @@
                 <p style="font-size: 16px; color: #555; margin-bottom: 20px;">
                     Ingresa el número del cliente para enviar la propuesta formal:
                 </p>
-                
                 <div class="input-group-whatsapp">
-                    <div class="flag-prefix">
-                        <span class="flag-icon">🇵🇪</span> +51
-                    </div>
+                    <div class="flag-prefix"><span class="flag-icon">🇵🇪</span> +51</div>
                     <input type="tel" id="whatsappNumber" class="input-phone" placeholder="999 999 999">
                 </div>
-
-                <p style="font-size: 12px; color: #999;">
-                    *Se enviará la cotización completa SIN mostrar la tasa de interés.
-                </p>
+                <p style="font-size: 12px; color: #999;">*Se enviará la cotización completa SIN mostrar la tasa de interés.</p>
             </div>
             <div class="modal-footer">
                 <button class="btn-grande" style="background-color: #25D366;" onclick="enviarPropuesta()">🚀 ENVIAR</button>
@@ -210,7 +181,7 @@
     </div>
 
     <script>
-        // --- BASE DE DATOS DE MOTOS (ACTUALIZADA CON LA SPARK) ---
+        // --- BASE DE DATOS DE MOTOS ---
         const dbMotos = [
             { 
                 id: 1, nombre: "REZZIO WAZE 125-H", precio: 4100, minimo: 3900, img: "https://i.imgur.com/g64fjJl.jpeg?1", 
@@ -253,44 +224,45 @@
                     <div class="moto-title">${moto.nombre}</div>
                     <div class="click-hint">👆 Toca para ver Ficha Técnica</div>
                     <div class="price-container">
-                        <div class="price-normal">S/ ${moto.precio.toLocaleString()}</div>
-                        <div class="price-min borroso" onclick="togglePrecio(event, this)">Min: S/ ${moto.minimo.toLocaleString()} 🔒</div>
+                        <div class="price-normal">S/. ${moto.precio.toLocaleString('en-US')}</div>
+                        <div class="price-min borroso" onclick="togglePrecio(event, this)">Min: S/. ${moto.minimo.toLocaleString('en-US')} 🔒</div>
                     </div>
                 </div>`;
             grid.appendChild(card);
         });
 
-        // --- LÓGICA DE PRECIO BORROSO ---
-        function togglePrecio(event, elemento) {
-            event.stopPropagation();
-            elemento.classList.toggle("borroso");
-        }
+        function togglePrecio(event, elemento) { event.stopPropagation(); elemento.classList.toggle("borroso"); }
 
-        // --- LÓGICA DEL MODAL DE DETALLE ---
+        // --- FUNCIONES MODALES ---
         const modal = document.getElementById("myModal");
+        const shareModal = document.getElementById("shareModal");
+        
         function verDetalleMoto(id) {
             const moto = dbMotos.find(m => m.id === id);
             document.getElementById('modalTitle').innerText = moto.nombre;
             document.getElementById('modalImg').src = moto.img;
-            document.getElementById('modalPrice').innerText = "S/ " + moto.precio.toLocaleString();
+            document.getElementById('modalPrice').innerText = "S/. " + moto.precio.toLocaleString('en-US');
             
-            // Configurar el precio mínimo con la clase borrosa
             const minPriceEl = document.getElementById('modalPriceMin');
-            minPriceEl.innerText = "Min: S/ " + moto.minimo.toLocaleString() + " 🔒";
-            minPriceEl.classList.add("borroso"); // Asegurar que arranque borroso
+            minPriceEl.innerText = "Min: S/. " + moto.minimo.toLocaleString('en-US') + " 🔒";
+            minPriceEl.classList.add("borroso");
 
             const tabla = document.getElementById('modalSpecs'); tabla.innerHTML = ""; 
             for (const [key, value] of Object.entries(moto.specs)) { let row = `<tr><td>${key}:</td><td>${value}</td></tr>`; tabla.innerHTML += row; }
             document.getElementById('btnCotizarModal').onclick = function() { cerrarModal(); enviarACalculadora(moto.nombre, moto.precio); };
             modal.style.display = "flex";
         }
+        
         function cerrarModal() { modal.style.display = "none"; }
+        function abrirModalShare() { shareModal.style.display = "flex"; setTimeout(() => document.getElementById('whatsappNumber').focus(), 100); }
+        function cerrarModalShare() { shareModal.style.display = "none"; }
+        
         window.onclick = function(event) { 
             if (event.target == modal) { modal.style.display = "none"; }
             if (event.target == shareModal) { shareModal.style.display = "none"; }
         }
 
-        // --- LÓGICA DE NAVEGACIÓN Y CÁLCULO ---
+        // --- NAVEGACIÓN Y CÁLCULOS ---
         function abrirPestana(evt, pestanaName) {
             var i, tabcontent, tablinks; tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) tabcontent[i].style.display = "none";
@@ -305,6 +277,11 @@
             document.getElementById('nombreMotoSel').innerText = "Cotizando: " + nombre;
             document.getElementById('costo').value = precio; document.getElementById('inicial').value = 0; 
             abrirPestana(null, 'Calculadora'); calcular();
+        }
+
+        // FUNCIÓN AUXILIAR PARA DAR FORMATO MONEDA
+        function formatearMoneda(numero) {
+            return parseFloat(numero).toLocaleString('en-US');
         }
 
         function calcular() {
@@ -322,58 +299,36 @@
             let valorCuotaRedondeado = Math.round(valorCuotaExacto);
             let totalFinalReal = (valorCuotaRedondeado * numCuotas) + inicial;
 
-            document.getElementById('resultadoCuota').innerText = valorCuotaRedondeado; 
-            document.getElementById('resultadoTotal').innerText = totalFinalReal;
-        }
-
-        // --- LÓGICA NUEVA: ENVIAR A WHATSAPP ---
-        const shareModal = document.getElementById("shareModal");
-
-        function abrirModalShare() {
-            shareModal.style.display = "flex";
-            // Enfocar en el input
-            setTimeout(() => document.getElementById('whatsappNumber').focus(), 100);
-        }
-
-        function cerrarModalShare() {
-            shareModal.style.display = "none";
+            // MUESTRA EL RESULTADO FORMATEADO CON COMA DE MILES
+            document.getElementById('resultadoCuota').innerText = formatearMoneda(valorCuotaRedondeado); 
+            document.getElementById('resultadoTotal').innerText = formatearMoneda(totalFinalReal);
         }
 
         function enviarPropuesta() {
-            // 1. Obtener el número
             let numero = document.getElementById('whatsappNumber').value.trim();
-            if (numero.length < 9) {
-                alert("Por favor ingresa un número de celular válido (9 dígitos).");
-                return;
-            }
+            if (numero.length < 9) { alert("Por favor ingresa un número válido."); return; }
 
-            // 2. Recopilar datos de la calculadora
             let moto = document.getElementById('nombreMotoSel').innerText.replace("Cotizando: ", "");
-            let precio = document.getElementById('costo').value;
-            let inicial = document.getElementById('inicial').value;
+            // Obtenemos valores y los formateamos para el mensaje
+            let precio = formatearMoneda(document.getElementById('costo').value);
+            let inicial = formatearMoneda(document.getElementById('inicial').value);
             let cuotas = document.getElementById('cuotas').value;
-            
-            // Obtener el texto de la frecuencia (Mensual/Semanal)
             let selectFrecuencia = document.getElementById('frecuencia');
             let textoFrecuencia = selectFrecuencia.options[selectFrecuencia.selectedIndex].text;
-            
-            let valorCuota = document.getElementById('resultadoCuota').innerText;
-            let totalFinal = document.getElementById('resultadoTotal').innerText;
+            let valorCuota = document.getElementById('resultadoCuota').innerText; // Ya viene formateado
+            let totalFinal = document.getElementById('resultadoTotal').innerText; // Ya viene formateado
 
-            // 3. Crear el mensaje bonito (SIN EL INTERÉS)
             let mensaje = `👋 *Hola! Aquí tienes tu propuesta de Sarco's Motos* 🏍️%0A%0A`;
             mensaje += `🛵 *Modelo:* ${moto}%0A`;
-            mensaje += `💰 *Precio:* S/ ${precio}%0A`;
-            mensaje += `💵 *Inicial:* S/ ${inicial}%0A`;
+            mensaje += `💰 *Precio:* S/. ${precio}%0A`;
+            mensaje += `💵 *Inicial:* S/. ${inicial}%0A`;
             mensaje += `📅 *Plan:* ${cuotas} Cuotas (${textoFrecuencia})%0A`;
-            mensaje += `✅ *Cuota a Pagar:* S/ ${valorCuota}%0A`;
-            mensaje += `🏁 *Total Final:* S/ ${totalFinal}%0A%0A`;
+            mensaje += `✅ *Cuota a Pagar:* S/. ${valorCuota}%0A`;
+            mensaje += `🏁 *Total Final:* S/. ${totalFinal}%0A%0A`;
             mensaje += `📍 *Visítanos y llévatela hoy mismo!*`;
 
-            // 4. Crear el link y abrirlo
             let url = `https://wa.me/51${numero}?text=${mensaje}`;
             window.open(url, '_blank');
-            
             cerrarModalShare();
         }
     </script>
