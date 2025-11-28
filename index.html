@@ -156,12 +156,70 @@
 
     <script>
         const dbMotos = [
-            { id: 1, nombre: "REZZIO WAZE 125-H", precio: 4100, minimo: 3900, img: "https://placehold.co/500x300/orange/white?text=REZZIO+WAZE+125", specs: { "Motor": "125cc OHC 4 Tiempos", "Transmisión": "Automática (CVT)", "Encendido": "Eléctrico y Pedal", "Tanque": "5.5 Litros", "Frenos": "Disco Delantero / Tambor Trasero", "Rendimiento": "140 km/galón (aprox)", "Extras": "Parrilla trasera, tablero análogo" } },
-            { id: 2, nombre: "JIALING TERRA 125", precio: 5100, minimo: 4900, img: "https://placehold.co/500x300/blue/white?text=JIALING+TERRA+125", specs: { "Motor": "125cc Monocilíndrico", "Estilo": "Todo Terreno / Enduro", "Transmisión": "Mecánica 5 Velocidades", "Tanque": "11 Litros", "Suspensión": "Horquilla telescópica alta", "Frenos": "Disco lobulado / Tambor", "Peso": "115 kg (Ligera)" } },
-            { id: 3, nombre: "JCH TITAN 200 SUPERCROSS", precio: 5700, minimo: 5500, img: "https://placehold.co/500x300/black/white?text=JCH+TITAN+200", specs: { "Motor": "200cc CG Cadenero", "Transmisión": "Mecánica 5 Velocidades", "Tanque": "12 Litros", "Suspensión Del": "Barras Invertidas Doradas", "Suspensión Post": "Monoshock", "Frenos": "Disco en ambas ruedas", "Extras": "Protector de manos, tubo deportivo" } },
-            { id: 4, nombre: "JCH MT200", precio: 6600, minimo: 6400, img: "https://i.imgur.com/vXyJ0y8.png", specs: { "Motor": "200cc Balanceado (Sin vibración)", "Estilo": "Naked / Deportiva", "Tablero": "100% Digital", "Tanque": "14 Litros", "Iluminación": "Full LED Integral", "Transmisión": "5 Velocidades", "Llantas": "Aleación deportiva" } },
-            { id: 5, nombre: "REZZIO RZ200 LITHIUM", precio: 9100, minimo: 8900, img: "https://placehold.co/500x300/green/white?text=REZZIO+RZ200", specs: { "Motor": "200cc Inyección o Carburada", "Refrigeración": "Radiador de Aceite", "Transmisión": "6 Velocidades", "Tanque": "15 Litros", "Tecnología": "Encendido a distancia / Alarma", "Frenos": "Doble disco delantero", "Velocidad Max": "125 km/h" } },
-            { id: 6, nombre: "RONCO TRAKTOR 300P", precio: 14700, minimo: 14500, img: "https://placehold.co/500x300/red/white?text=RONCO+TRAKTOR+300P", specs: { "Motor": "300cc OHV enfriado por Agua", "Carga Útil": "1000 kg - 1200 kg", "Transmisión": "Mecánica 5 vel + Reversa", "Tanque": "16 Litros", "Tracción": "Cardán con Rooster (Dual)", "Llantas": "Posteriores Doble Llanta", "Extras": "Tolva levadiza hidráulica (opcional)" } }
+            { 
+                id: 1, 
+                nombre: "REZZIO WAZE 125-H", 
+                precio: 4100, 
+                minimo: 3900, 
+                img: "https://i.imgur.com/g64fjJl.jpeg?1", 
+                specs: { "Motor": "125cc OHC 4 Tiempos", "Transmisión": "Automática (CVT)", "Encendido": "Eléctrico y Pedal", "Tanque": "5.5 Litros", "Frenos": "Disco Delantero / Tambor Trasero", "Rendimiento": "140 km/galón (aprox)", "Extras": "Parrilla trasera, tablero análogo" } 
+            },
+			{ 
+                id: 7, 
+                nombre: "REZZIO SPARK 125", 
+                precio: 4400,
+                minimo: 4200,
+                img: "https://i.imgur.com/SVc2biZ.png",
+                specs: { 
+                    "Motor": "125cc OHC 4 Tiempos", 
+                    "Transmisión": "Semiautomática 4 Velocidades", 
+                    "Encendido": "Eléctrico y Pedal", 
+                    "Tanque": "8 Litros (aprox)", 
+                    "Frenos": "Disco Delantero / Tambor Trasero", 
+                    "Suspensión": "Amortiguador reforzado", 
+                    "Extras": "MP3 Bluetooth, Parrilla, Tapamanos" 
+                } 
+            },
+            { 
+                id: 2, 
+                nombre: "JIALING TERRA 125", 
+                precio: 5100, 
+                minimo: 4900, 
+                img: "https://i.imgur.com/cVQD907.png", 
+                specs: { "Motor": "125cc Monocilíndrico", "Estilo": "Todo Terreno / Enduro", "Transmisión": "Mecánica 5 Velocidades", "Tanque": "11 Litros", "Suspensión": "Horquilla telescópica alta", "Frenos": "Disco lobulado / Tambor", "Peso": "115 kg (Ligera)" } 
+            },
+            { 
+                id: 3, 
+                nombre: "JCH TITAN 200 SUPERCROSS", 
+                precio: 5700, 
+                minimo: 5500, 
+                img: "https://i.imgur.com/dWYn88M.png", 
+                specs: { "Motor": "200cc CG Cadenero", "Transmisión": "Mecánica 5 Velocidades", "Tanque": "12 Litros", "Suspensión Del": "Barras Invertidas Doradas", "Suspensión Post": "Monoshock", "Frenos": "Disco en ambas ruedas", "Extras": "Protector de manos, tubo deportivo" } 
+            },
+            { 
+                id: 4, 
+                nombre: "JCH MT200", 
+                precio: 6600, 
+                minimo: 6400, 
+                img: "https://i.imgur.com/vXyJ0y8.png", 
+                specs: { "Motor": "200cc Balanceado (Sin vibración)", "Estilo": "Naked / Deportiva", "Tablero": "100% Digital", "Tanque": "14 Litros", "Iluminación": "Full LED Integral", "Transmisión": "5 Velocidades", "Llantas": "Aleación deportiva" } 
+            },
+            { 
+                id: 5, 
+                nombre: "REZZIO RZ200 LITHIUM", 
+                precio: 9100, 
+                minimo: 8900, 
+                img: "https://i.imgur.com/V6GoW8l.png", 
+                specs: { "Motor": "200cc Inyección o Carburada", "Refrigeración": "Radiador de Aceite", "Transmisión": "6 Velocidades", "Tanque": "15 Litros", "Tecnología": "Encendido a distancia / Alarma", "Frenos": "Doble disco delantero", "Velocidad Max": "125 km/h" } 
+            },
+            { 
+                id: 6, 
+                nombre: "RONCO TRAKTOR 300P", 
+                precio: 14700, 
+                minimo: 14500, 
+                img: "https://i.imgur.com/PGITm8B.jpeg?1", 
+                specs: { "Motor": "300cc OHV enfriado por Agua", "Carga Útil": "1000 kg - 1200 kg", "Transmisión": "Mecánica 5 vel + Reversa", "Tanque": "16 Litros", "Tracción": "Cardán con Rooster (Dual)", "Llantas": "Posteriores Doble Llanta", "Extras": "Tolva levadiza hidráulica (opcional)" } 
+            }
         ];
 
         const grid = document.getElementById('gridMotos');
