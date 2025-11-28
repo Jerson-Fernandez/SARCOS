@@ -50,10 +50,10 @@
             border: 2px solid #FFC107; 
             object-fit: cover; 
             background-color: #FFC107; 
-            display: block; /* Asegura que se comporte como bloque */
+            display: block; 
         }
 
-        /* --- RESTO DE ESTILOS (Sin cambios) --- */
+        /* --- RESTO DE ESTILOS --- */
         .tab-content { display: none; padding: 20px; animation: fadeEffect 0.5s; padding-bottom: 100px;}
         @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
         .catalogo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
@@ -99,7 +99,7 @@
         <button class="tablinks" onclick="abrirPestana(event, 'Calculadora')" id="btnCalculadora">🔢 CALCULADORA</button>
         
         <img src="https://scontent.fhuu1-1.fna.fbcdn.net/v/t39.30808-6/438093950_122116710320258418_4607114679402625258_n.jpg?_nc_cat=101&_nc_cb=99be929b-ad57045b&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeH7PJKv6xpujeyru1bZ3abAfmn6eQrr6a1-afp5CuvprTOwuIgW-I1JtyZmolUBC4DLxsQQkRuaAyDZ6aHT9Gke&_nc_ohc=hEXxl_L-9hoQ7kNvwF0Q8z0&_nc_oc=Adm7EJqJNgMcWVHAT-Tp-5_R0m2D4E0nRBgnzEAg0hHkc2Zm-4BYw1zmPp92yzArc2bhFn-DqtZbpocW0JgEfFBF&_nc_zt=23&_nc_ht=scontent.fhuu1-1.fna&_nc_gid=1RIa4XmBqOFo9zCRp4lMjQ&oh=00_AfhtaVWOeK3FITMnuTV4yKTbq2w6lGv_hltxdTv1CXqvlQ&oe=692D89C9" class="profile-icon" alt="Perfil">
-    </div>
+   </div>
 
     <div id="Catalogo" class="tab-content" style="display: block;">
         <div class="catalogo-grid" id="gridMotos"></div>
@@ -204,19 +204,28 @@
             abrirPestana(null, 'Calculadora'); calcular();
         }
 
+        /* --- LÓGICA DE CÁLCULO ACTUALIZADA (REDONDEO NORMAL) --- */
         function calcular() {
             let costo = parseFloat(document.getElementById('costo').value) || 0;
             let inicial = parseFloat(document.getElementById('inicial').value) || 0;
             let numCuotas = parseInt(document.getElementById('cuotas').value) || 1;
             let tasaInteresMensual = parseFloat(document.getElementById('interes').value) || 0;
             let factorFrecuencia = parseInt(document.getElementById('frecuencia').value);
-            let capitalFinanciar = costo - inicial; if (capitalFinanciar < 0) capitalFinanciar = 0;
+
+            let capitalFinanciar = costo - inicial; 
+            if (capitalFinanciar < 0) capitalFinanciar = 0;
+
             let mesesReales = numCuotas / factorFrecuencia;
             let totalInteres = capitalFinanciar * (tasaInteresMensual / 100) * mesesReales;
             let totalFinanciado = capitalFinanciar + totalInteres;
             let valorCuotaExacto = totalFinanciado / numCuotas;
-            let valorCuotaRedondeado = Math.ceil(valorCuotaExacto);
+
+            /* AQUÍ ESTÁ EL CAMBIO: Usamos Math.round en vez de Math.ceil */
+            let valorCuotaRedondeado = Math.round(valorCuotaExacto);
+
+            /* El total también se actualiza basado en el nuevo redondeo */
             let totalFinalReal = (valorCuotaRedondeado * numCuotas) + inicial;
+
             document.getElementById('resultadoCuota').innerText = valorCuotaRedondeado; 
             document.getElementById('resultadoTotal').innerText = totalFinalReal;
         }
